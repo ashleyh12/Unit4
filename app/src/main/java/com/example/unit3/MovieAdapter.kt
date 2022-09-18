@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 
+//source(s) used: https://www.youtube.com/watch?v=mPlcAkuiH5M&list=PLrT2tZ9JRrf4wZSRwvvl-0eYqLCsP0_7q&ab_channel=CodePath
 private const val TAG = "MovieAdapter"
 class MovieAdapter(private val context: Context, private val movies: MutableList<Movie>) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {

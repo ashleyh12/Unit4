@@ -2,6 +2,9 @@ package com.example.unit3
 
 import org.json.JSONArray
 
+
+//source(s) used: https://www.youtube.com/watch?v=mPlcAkuiH5M&list=PLrT2tZ9JRrf4wZSRwvvl-0eYqLCsP0_7q&ab_channel=CodePath
+
 data class Movie(
     val movieID: Int,
     private val poster: String,
