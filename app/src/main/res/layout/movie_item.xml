@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/movieImage"
+        android:id="@+id/itemViewPoster"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,13 +21,14 @@
         android:id="@+id/movieTitle"
         android:layout_width="192dp"
         android:layout_height="43dp"
+        android:layout_marginEnd="56dp"
         android:text="Movie Title Goes Here!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.246"
         app:layout_constraintStart_toEndOf="@+id/movieImage"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <TextView
         android:id="@+id/movieDescription"
@@ -41,5 +42,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/movieImage"
         app:layout_constraintTop_toBottomOf="@+id/movieTitle"
-        app:layout_constraintVertical_bias="0.003" />
+        app:layout_constraintVertical_bias="0.003"
+        tools:ignore="UnknownId" />
 </androidx.constraintlayout.widget.ConstraintLayout>

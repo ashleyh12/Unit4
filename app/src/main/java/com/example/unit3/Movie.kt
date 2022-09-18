@@ -10,6 +10,10 @@ data class Movie(
 
 
 ) {
+    val overview: CharSequence?
+        get() {
+            TODO()
+        }
     val posterURL = "https://image.tmdb.org/t/p/w500/$poster"
     companion object {
         fun fromJsonArray(jsonArray: JSONArray): List<Movie> {

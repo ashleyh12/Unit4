@@ -4,6 +4,8 @@ import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
@@ -14,14 +16,19 @@ class MainActivity : AppCompatActivity() {
 
 
     private val movies = mutableListOf<Movie>()
+    private lateinit var rvMovies: RecyclerView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        rvMovies = findViewById(R.id.rvMovies)
+
 
         val movieAdapter = MovieAdapter(this, movies)
 
+        rvMovies.adapter = movieAdapter
+        rvMovies.layoutManager = LinearLayoutManager(this)
 
         val asyncClient = AsyncHttpClient()
         asyncClient.get(now_playing, object: JsonHttpResponseHandler() {
@@ -39,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
                     val jsonArray = json!!.jsonObject.getJSONArray("results")
                     movies.addAll(Movie.fromJsonArray(jsonArray))
+                    movieAdapter.notifyDataSetChanged()
                     Log.i(TAG, "List of Movies $movies ")
                 } catch (e: JSONException) {
                     Log.e(TAG, "Encountered Exception $e")
