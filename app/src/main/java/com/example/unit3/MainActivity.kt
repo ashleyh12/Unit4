@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val movieAdapter = MovieAdapter(this, movies)
+
+
         val asyncClient = AsyncHttpClient()
         asyncClient.get(now_playing, object: JsonHttpResponseHandler() {
             override fun onFailure(
