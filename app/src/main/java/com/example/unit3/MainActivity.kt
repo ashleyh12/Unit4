@@ -38,21 +38,21 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(
                 statusCode: Int, headers: Headers?, response: String?, throwable: Throwable?
             ) {
-                Log.e(TAG, "onFailure $statusCode")
+                Log.e(newTag, "onFailure $statusCode")
 
             }
 
             override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON?) {
-                Log.i(TAG, "onSuccess: JSON data $json")
+                Log.i(newTag, "onSuccess: JSON data $json")
                 try {
 
 
                     val jsonArray = json!!.jsonObject.getJSONArray("results")
                     movies.addAll(Movie.fromJsonArray(jsonArray))
                     movieAdapter.notifyDataSetChanged()
-                    Log.i(TAG, "List of Movies $movies ")
+                    Log.i(newTag, "List of Movies $movies ")
                 } catch (e: JSONException) {
-                    Log.e(TAG, "Encountered Exception $e")
+                    Log.e(newTag, "Encountered Exception $e")
                 }
 
             }
