@@ -13,7 +13,7 @@ import org.json.JSONException
 
 
 //source(s) used: https://www.youtube.com/watch?v=mPlcAkuiH5M&list=PLrT2tZ9JRrf4wZSRwvvl-0eYqLCsP0_7q&ab_channel=CodePath
-
+private const val newTag = "mainActivity Checker"
 private const val now_playing = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1"
 class MainActivity : AppCompatActivity() {
 
@@ -38,21 +38,21 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(
                 statusCode: Int, headers: Headers?, response: String?, throwable: Throwable?
             ) {
-                Log.e(TAG, "onFailure $statusCode")
+                Log.e(newTag, "onFailure $statusCode")
 
             }
 
             override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON?) {
-                Log.i(TAG, "onSuccess: JSON data $json")
+                Log.i(newTag, "onSuccess: JSON data $json")
                 try {
 
 
                     val jsonArray = json!!.jsonObject.getJSONArray("results")
                     movies.addAll(Movie.fromJsonArray(jsonArray))
                     movieAdapter.notifyDataSetChanged()
-                    Log.i(TAG, "List of Movies $movies ")
+                    Log.i(newTag, "List of Movies $movies ")
                 } catch (e: JSONException) {
-                    Log.e(TAG, "Encountered Exception $e")
+                    Log.e(newTag, "Encountered Exception $e")
                 }
 
             }
