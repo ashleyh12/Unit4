@@ -35,7 +35,7 @@ class MovieAdapter(private val context: Context, private val movies: MutableList
 
         fun bind(movie: Movie){
             tvTitle.text = movie.title
-            tvOverview.text = movie.overview
+            tvOverview.text = movie.description
             Glide.with(context).load(movie.posterURL).into(itemViewPoster)
 
         }
