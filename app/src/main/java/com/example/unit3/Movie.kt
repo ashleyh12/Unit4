@@ -1,7 +1,12 @@
 package com.example.unit3
 
+import android.os.Parcelable
+import androidx.versionedparcelable.ParcelImpl
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 import org.json.JSONArray
 
+@Parcelize
 
 //source(s) used: https://www.youtube.com/watch?v=mPlcAkuiH5M&list=PLrT2tZ9JRrf4wZSRwvvl-0eYqLCsP0_7q&ab_channel=CodePath
 
@@ -12,11 +17,8 @@ data class Movie(
     val description: String,
 
 
-) {
-    val overview: CharSequence?
-        get() {
-            TODO()
-        }
+) : Parcelable {
+    @IgnoredOnParcel
     val posterURL = "https://image.tmdb.org/t/p/w500/$poster"
     companion object {
         fun fromJsonArray(jsonArray: JSONArray): List<Movie> {
