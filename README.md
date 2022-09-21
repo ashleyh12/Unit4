@@ -5,7 +5,7 @@ Submitted by: Flixster
 
 Flixster is a movie browsing app that allows users to browse movies currently playing in theaters.
 
-Time spent: 6 hours spent in total
+Time spent: 16 hours spent in total
 
 ## Required Features
 
@@ -31,7 +31,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-https://www.loom.com/share/d096284d036845db830e8cb8fdf22143
+https://www.loom.com/share/125095ff041e4c99b98262c77d80d2f9
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with Loom  
