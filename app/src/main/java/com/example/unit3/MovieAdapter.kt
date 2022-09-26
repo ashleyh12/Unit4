@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
@@ -28,16 +29,29 @@ class MovieAdapter(private val context: Context, private val movies: MutableList
 
 
     override fun getItemCount() = movies.size
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         private val itemViewPoster = itemView.findViewById<ImageView>(R.id.itemViewPoster)
         private val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
         private val tvOverview = itemView.findViewById<TextView>(R.id.tvOverview)
+
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
 
         fun bind(movie: Movie){
             tvTitle.text = movie.title
             tvOverview.text = movie.description
             Glide.with(context).load(movie.posterURL).into(itemViewPoster)
 
+        }
+
+        override fun onClick(p0: View?) {
+            //notifed of movie that was clicked
+            val movie = movies[adapterPosition]
+            Toast.makeText(context, movie.title, Toast.LENGTH_SHORT).show()
+            //use the system to navigate to the new activity
         }
     }
 
