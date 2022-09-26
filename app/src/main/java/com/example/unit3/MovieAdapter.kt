@@ -42,3 +42,4 @@ class MovieAdapter(private val context: Context, private val movies: MutableList
     }
 
 }
+
