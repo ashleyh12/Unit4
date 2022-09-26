@@ -1,6 +1,7 @@
 package com.example.unit3
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,9 @@ import com.bumptech.glide.Glide
 
 
 //source(s) used: https://www.youtube.com/watch?v=mPlcAkuiH5M&list=PLrT2tZ9JRrf4wZSRwvvl-0eYqLCsP0_7q&ab_channel=CodePath
+
+const val Movieextra = "MOVIEEXTRA"
+
 private const val TAG = "MovieAdapter"
 class MovieAdapter(private val context: Context, private val movies: MutableList<Movie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>()
 {
@@ -52,6 +56,11 @@ class MovieAdapter(private val context: Context, private val movies: MutableList
             val movie = movies[adapterPosition]
             Toast.makeText(context, movie.title, Toast.LENGTH_SHORT).show()
             //use the system to navigate to the new activity
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra(Movieextra, movie)
+            context.startActivity(intent)
+
+
         }
     }
 
